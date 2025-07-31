@@ -8,8 +8,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  LT_USERNAME: $(LT_USERNAME)
-  LT_ACCESS_KEY: $(LT_ACCESS_KEY)
+  LT_USERNAME: deepanshulambdatest
+  LT_ACCESS_KEY: SMKwpdntRhBpUbdLrUqk0tU0TjAZquV9kz0YxnOWUo56EaqtQw
 
 steps:
 - task: NodeTool@0
