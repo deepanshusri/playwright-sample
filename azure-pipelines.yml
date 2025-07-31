@@ -1,0 +1,28 @@
+# azure-pipelines.yml
+trigger:
+  branches:
+    include:
+      - main  # or master / your branch name
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  LT_USERNAME: $(LT_USERNAME)
+  LT_ACCESS_KEY: $(LT_ACCESS_KEY)
+
+steps:
+- task: NodeTool@0
+  inputs:
+    versionSpec: '18.x'
+  displayName: 'Install Node.js'
+
+- script: |
+    npm install
+    npx playwright install
+  displayName: 'Install dependencies and Playwright'
+
+- script: |
+    echo "Running Playwright tests on LambdaTest..."
+    npm run test:lambdatest
+  displayName: 'Run Playwright Tests'
